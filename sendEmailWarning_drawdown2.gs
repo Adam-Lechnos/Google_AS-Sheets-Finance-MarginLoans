@@ -2,8 +2,10 @@ function sendEmailWarningMargin2() {
   // Fetch error status
   var errorRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("2 - Summary").getRange("E10"); 
   var errorStatus = errorRange.getValue();
+  var errorCheckRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I18");
+  var errorCheck = errorCheckRange.getValue();
   // Check totals sales
-  if (errorStatus<.10 && errorStatus>.01){
+  if (errorStatus<.10 && errorStatus>.01 && errorCheck === false){
     // Fetch the email address
     var emailAddress = 'adam.lechnos@gmail.com';
   
