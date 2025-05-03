@@ -1,4 +1,10 @@
 function FreezeValueEntryM(){
+
+  // check interest_rate data import completes
+  scriptFuncName = 'Misc'
+  scriptFileName = scriptFuncName+'.gs'
+  checkInterestHook(scriptFileName, scriptFuncName)
+
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Misc");
   var range = sheet.getRange("O8:O367");
   var values = range.getValues();

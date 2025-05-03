@@ -4,7 +4,13 @@ function sendEmailWarningMargin() {
   var errorStatus = errorRange.getValue();
   var errorCheckRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I18");
   var errorCheck = errorCheckRange.getValue();
-  // Check totals sales
+
+  // check interest_rate data import completes
+  scriptFuncName = 'sendEmailWarningMargin1'
+  scriptFileName = scriptFuncName+'.gs'
+  checkInterestHook(scriptFileName, scriptFuncName)
+
+  // Check remaining drawdown thresholds
   if (errorStatus<.10 && errorStatus>.01 && errorCheck === false){
     // Fetch the email address
     var emailAddress = 'adam.lechnos@gmail.com';

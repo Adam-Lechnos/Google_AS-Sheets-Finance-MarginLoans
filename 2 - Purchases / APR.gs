@@ -1,4 +1,10 @@
 function FreezeValueEntry2SPapr(){
+
+  // check interest_rate data import completes
+  scriptFuncName = '2 - Purchases / APR'
+  scriptFileName = scriptFuncName+'.gs'
+  checkInterestHook(scriptFileName, scriptFuncName)
+
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("2 - Securities Purchases");
   var range = sheet.getRange("C8:C367");
   var values = range.getValues();

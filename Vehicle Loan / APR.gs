@@ -1,4 +1,10 @@
 function FreezeValueEntryVLapr(){
+
+  // check interest_rate data import completes
+  scriptFuncName = 'Vehicle Loan / APR'
+  scriptFileName = scriptFuncName+'.gs'
+  checkInterestHook(scriptFileName, scriptFuncName)
+
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Vehicle Loan");
   var range = sheet.getRange("C8:C367");
   var values = range.getValues();
