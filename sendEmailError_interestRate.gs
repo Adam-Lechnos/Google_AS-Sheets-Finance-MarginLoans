@@ -1,8 +1,18 @@
 function errorCheckinterestRate() {
   // Fetch error status
-  var errorRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("interest_rate_curr").getRange("I2"); 
-  var errorStatus = errorRange.getValue();
-  // Check totals sales
+  var errorStatus = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("interest_rate_curr").getRange("I2").getValue();
+  errorCheckTH = 1000
+  errorCheckCount = 0
+
+    // Give time for error to self resolve
+  while (errorStatus && errorCheckCount < errorCheckTH){
+    console.log("Error Status: "+errorStatus+"    Check Count:"+errorCheckCount+"/"+errorCheckTH)
+    var errorStatus = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("interest_rate_curr").getRange("I2").getValue(); 
+    SpreadsheetApp.flush()
+    errorCheckCount++
+    }
+
+  // Check error status
   if (errorStatus){
     // Fetch the email address
     var emailAddress = 'adam.lechnos@gmail.com';
