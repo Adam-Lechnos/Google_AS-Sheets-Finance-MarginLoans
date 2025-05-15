@@ -4,6 +4,22 @@ function sendEmailWarningMargin2() {
   var errorStatus = errorRange.getValue();
   var errorCheckRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I18");
   var errorCheck = errorCheckRange.getValue();
+  var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I20").getValue();
+
+  errorCheckTH = 1000
+  errorCheckCount = 0
+
+  // Give time for portfolio data source error to self resolve
+  while (errorCheckPort && errorCheckCount < errorCheckTH){
+    console.log("Port Source Error Status: "+errorCheckPort+"    Check Count:"+errorCheckCount+"/"+errorCheckTH);
+    var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I20").getValue();
+    SpreadsheetApp.flush()
+    errorCheckCount++
+    }
+
+  if (errorCheckCount == errorCheckTH){
+    throw new Error("Portfolio data source error never self resolved (https://docs.google.com/spreadsheets/d/1w-VEbztIxeHQCyk-djNfMLML13XtZxiYi-oV4icEE0U/edit?gid=1030256512#gid=1030256512). This script will run again in 2 hours, exiting.")
+  }
 
   // check interest_rate data import completes
   scriptFuncName = 'sendEmailWarningMargin2'

@@ -7,8 +7,8 @@ function errorCheckinterestRate() {
     // Give time for error to self resolve
   while (errorStatus && errorCheckCount < errorCheckTH){
     console.log("Error Status: "+errorStatus+"    Check Count:"+errorCheckCount+"/"+errorCheckTH)
-    var errorStatus = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("interest_rate_curr").getRange("I2").getValue(); 
     SpreadsheetApp.flush()
+    var errorStatus = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("interest_rate_curr").getRange("I2").getValue(); 
     errorCheckCount++
     }
 
