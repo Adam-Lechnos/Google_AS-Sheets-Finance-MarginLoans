@@ -4,7 +4,7 @@ function sendEmailWarningMargin2() {
   var errorStatus = errorRange.getValue();
   var errorCheckRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I18");
   var errorCheck = errorCheckRange.getValue();
-  var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I20").getValue();
+  var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I19").getValue();
 
   errorCheckTH = 1000
   errorCheckCount = 0
@@ -12,7 +12,7 @@ function sendEmailWarningMargin2() {
   // Give time for portfolio data source error to self resolve
   while (errorCheckPort && errorCheckCount < errorCheckTH){
     console.log("Port Source Error Status: "+errorCheckPort+"    Check Count:"+errorCheckCount+"/"+errorCheckTH);
-    var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I20").getValue();
+    var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I19").getValue();
     SpreadsheetApp.flush()
     errorCheckCount++
     }
