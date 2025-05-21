@@ -6,7 +6,7 @@ function sendEmailWarningMargin2() {
   var errorCheck = errorCheckRange.getValue();
   var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I19").getValue();
 
-  errorCheckTH = 600
+  errorCheckTH = 700
   errorCheckCount = 0
 
   // Give time for portfolio data source error to self resolve
