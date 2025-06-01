@@ -5,6 +5,19 @@ function sendEmailWarningMargin() {
   var errorCheckRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I18");
   var errorCheck = errorCheckRange.getValue();
   var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I19").getValue();
+ 
+  const tz = 'America/New_York'
+  const startHour = 8; 
+  const endHour = 20;
+  const now = new Date();
+  const timeString = now.toLocaleTimeString('en-US', { timeZone: tz, hour12: false });
+  const currentHour = timeString.substring(1, 2);
+  //console.log(currentHour);
+
+  if (currentHour<startHour || currentHour>endHour){
+    console.log("Not within the hours between "+startHour+" and "+endHour+", "+tz+" timzone. Current hour: "+ currentHour +" (hours in 24hr format), exiting..")
+    return
+  }
 
   errorCheckTH = 700
   errorCheckCount = 0
