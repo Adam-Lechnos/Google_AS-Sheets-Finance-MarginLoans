@@ -6,6 +6,7 @@ function sendEmailWarningMargin() {
   var errorCheck = errorCheckRange.getValue();
   var errorCheckPort = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Summary").getRange("I19").getValue();
  
+  //allow execution between specified hours
   const tz = 'America/New_York'
   const startHour = 8; 
   const endHour = 20;
