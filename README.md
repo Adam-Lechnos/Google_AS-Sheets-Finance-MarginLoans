@@ -26,8 +26,8 @@ Google Sheets automation for calculating margin loan interest, risk, and amount 
 | errorCheckinterestRate | Time-driven | Day timer | 6pm to 7pm | Daily |
 | FreezeValueEntrySPapr | Time-drive | Day timer | 1am to 2am | Daily |
 | FreezeValueEntry2M | Time-drive | Month - 15th | 5am to 6am | Weekly |
-| FreezeValueEntryVLapr | Time-driven | Day | 2am to 3am | Daily | Daily |
-| currBalOwdFreeze | Time-driven | Day | Midnight to 1am | Daily | Weekly |
+| FreezeValueEntryVLapr | Time-driven | Day | 2am to 3am | Daily |
+| currBalOwdFreeze | Time-driven | Hour | Every Hour | Daily |
 
 *\*Day of the month if `Month timer` is selected or Day of Week if `Week timer` is selected* \
 *\^Event type if `From spreadsheet` is selected*
